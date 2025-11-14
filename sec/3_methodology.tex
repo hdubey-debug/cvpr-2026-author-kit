@@ -46,15 +46,26 @@ Our video selection process employs rigorous criteria to ensure benchmark qualit
 
 \subsection{Dataset Statistics and Characteristics}
 
-The final CLIP-CC-Bench dataset comprises 200 carefully curated video clips with corresponding expert-generated descriptions. Key statistics include:
+The final CLIP-CC-Bench dataset comprises 5 hours of movie content broken down into 90-second clips with corresponding expert-generated descriptions. Key statistics are presented in \cref{tab:dataset_stats}.
 
-\begin{itemize}
-    \item \textbf{Total Videos:} 200 clips
-    \item \textbf{Average Duration:} Approximately 90 seconds
-    \item \textbf{Average Description Length:} 402 words (range: 99-1,011 words)
-    \item \textbf{Average Sentences per Description:} 22 sentences (range: 4-59 sentences)
-    \item \textbf{Description Length Standard Deviation:} 209 words
-\end{itemize}
+\begin{table}[t]
+\centering
+\caption{CLIP-CC-Bench dataset statistics.}
+\label{tab:dataset_stats}
+\begin{tabular}{lc}
+\toprule
+\textbf{Metric} & \textbf{Value} \\
+\midrule
+Number of videos & 200 \\
+Clip duration & $\sim$90 seconds \\
+Total video content & 5 hours \\
+Words per description (mean $\pm$ std) & 402.2 $\pm$ 208.5 \\
+Words per description [min, max] & [99, 1011] \\
+Sentences per description (mean $\pm$ std) & 21.9 $\pm$ 11.5 \\
+Vocabulary size (unique words) & 4,000 \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{figure}[t]
 \centering
