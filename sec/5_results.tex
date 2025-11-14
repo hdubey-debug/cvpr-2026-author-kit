@@ -1,7 +1,7 @@
 \section{Results}
 \label{sec:results}
 
-We present comprehensive experimental results evaluating 14 Vision Language Models on CLIP-CC-Bench across three evaluation families for long-form video description.
+We present comprehensive experimental results evaluating 14 Video Language Models on CLIP-CC-Bench across three evaluation families for long-form video description.
 
 \subsection{N-gram Overlap}
 
@@ -119,7 +119,7 @@ MiniCPM-V achieves the highest overall score (74.85), excelling in Completeness 
 
 \textbf{1. Divergence Across Evaluation Families:} The three families produce substantially different rankings. VideoLLaMA3 dominates N-gram overlap (BLEU-1: 0.32, ROUGE-1: 0.45) and embedding similarity (E5-Mistral: 0.939), while MiniCPM-V excels in LLM-as-judge assessment (74.85/100). This divergence demonstrates that models excel in different aspects of long-form description.
 
-\textbf{2. Architecture and Training Matter Most:} The strong performance variance among models demonstrates that architectural design and training methodology are critical factors in model performance. VideoLLaMA3 achieves 0.32 BLEU-1 while TimeChat achieves only 0.09, highlighting substantial differences in capability despite both being vision-language models.
+\textbf{2. Architecture and Training Matter Most:} The strong performance variance among models demonstrates that architectural design and training methodology are critical factors in model performance. VideoLLaMA3 achieves 0.32 BLEU-1 while TimeChat achieves only 0.09, highlighting substantial differences in capability despite both being video-language models.
 
 \textbf{3. Application-Driven Model Selection:} The divergent strengths across families indicate that model selection should be guided by application requirements. For lexical accuracy, VideoLLaMA3 excels; for semantic understanding, multiple models perform comparably; for discourse quality, MiniCPM-V leads.
 
