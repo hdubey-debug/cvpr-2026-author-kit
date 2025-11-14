@@ -1,11 +1,11 @@
 \section{Experiments}
 \label{sec:experiments}
 
-We evaluate 14 state-of-the-art Vision Language Models on CLIP-CC-Bench using three evaluation families to analyze their long-form video description capabilities.
+We evaluate 17 state-of-the-art Vision Language Models on CLIP-CC-Bench using three evaluation families to analyze their long-form video description capabilities.
 
 \subsection{Model Selection and Inference}
 
-We evaluate 14 representative VLMs spanning different architectural paradigms and training methodologies, as summarized in \cref{tab:models}. To ensure comprehensive evaluation of each model's capabilities, we utilize their maximum supported frame capacity, allowing each VLM to process videos at its full potential rather than imposing artificial constraints.
+We evaluate 17 representative VLMs spanning different architectural paradigms and training methodologies, as summarized in \cref{tab:models}. To ensure comprehensive evaluation of each model's capabilities, we utilize their maximum supported frame capacity, allowing each VLM to process videos at its full potential rather than imposing artificial constraints.
 
 \begin{table}[t]
 \centering
@@ -17,8 +17,11 @@ We evaluate 14 representative VLMs spanning different architectural paradigms an
 \textbf{Model} & \textbf{Architecture Family} & \textbf{Parameters} & \textbf{Max Frames} \\
 \midrule
 LLaVA-OneVision & Transformer & 7B & 8 \\
+LLaVA-NeXT-Video & Transformer & 7B & 32 \\
 VideoLLaMA3 & Transformer & 7B & 32 \\
 InternVL2 & Transformer & 8B & 12 \\
+Qwen2.5 & Transformer & 32B & -- \\
+Qwen2.5 & Transformer & 72B & -- \\
 \midrule
 LongVU & Efficient & 7B & -- \\
 LongVA & Efficient & 7B & 128 \\
@@ -41,18 +44,18 @@ ShareGPT4Video & Multimodal & 8B & -- \\
 All models generate paragraph-length descriptions for each of the 200 video clips using standardized inference parameters while operating at their maximum frame processing capacity.
 
 \subsection{Evaluation Protocol}
-We standardize evaluation with: (1) uniform prompting: \textit{``Provide a detailed description of the video, covering all significant events, the actions of each character or entity, any camera movements, the attributes of the characters or entities, and a description of the scene.''}, (2) consistent generation parameters (temperature=0.0, max\_tokens=5000), and (3) deterministic inference with greedy decoding to ensure reproducible and consistent outputs.
+We standardize evaluation with: (1) uniform prompting: \textit{``Provide a detailed description of the video, covering all significant events, the actions of each character or entity, any camera movements, the attributes of the characters or entities, and a description of the scene, focusing on the characters themselves without recognizing, identifying, or naming them, and only describing their appearance, behavior, and actions.''}, (2) consistent generation parameters (temperature=0.0, max\_tokens=5000), and (3) deterministic inference with greedy decoding to ensure reproducible and consistent outputs.
 
 \subsection{Evaluation Methodologies}
 
-Our comprehensive evaluation employs three complementary families of metrics to assess different aspects of long-form video description quality. This multi-faceted approach reveals model capabilities across lexical, semantic, and discourse-level dimensions.
+We employ a multi-granular semantic matching framework that evaluates VLM-generated descriptions through both holistic and sentence-level alignment with reference descriptions. This approach combines embedding-based similarity at multiple scales with a multi-judge consensus mechanism to ensure robust and comprehensive performance assessment.
 
-\subsubsection{N-gram Overlap}
-We compute BLEU-1 and BLEU-4~\cite{papineni2002bleu} to measure precision of unigram and 4-gram matches, ROUGE-1, ROUGE-4, ROUGE-L, and ROUGE-Lsum~\cite{lin2004rouge} for recall-oriented assessment, and METEOR~\cite{banerjee2005meteor} for synonym and paraphrase matching.
+\subsubsection{Coarse-Grained Semantic Matching}
+We encode the complete ground truth and predicted descriptions as single dense vector representations using pre-trained embedding models. The semantic alignment is quantified through cosine similarity between these holistic embeddings, capturing the overall semantic coherence between the generated caption and reference description.
 
-\subsubsection{Embedding-Based Similarity}
-We compute normalized cosine similarity between generated and reference descriptions using seven state-of-the-art text encoders: BGE-EN-ICL~\cite{li2024bgeenicl}, E5-Mistral-7B~\cite{wang2024e5}, Jasper-Envision~\cite{zhang2024jasper}, Jina-v4~\cite{wang2024jina}, Nomic-Embed-Text-v1.5~\cite{nussbaum2024nomic}, NV-Embed~\cite{lee2024nv}, and Stella-EN-1.5B~\cite{dunlap2024stella}.
+\subsubsection{Fine-Grained Semantic Matching}
+Following sentence-level tokenization, we compute embeddings for each individual sentence in both the ground truth and prediction. Fine-grained precision measures how well each predicted sentence aligns with the ground truth by finding the maximum cosine similarity between each prediction sentence and all reference sentences. Similarly, fine-grained recall evaluates coverage by measuring the maximum alignment for each reference sentence against all prediction sentences. The F1 score harmonically combines these metrics to balance semantic precision and recall at the sentence level.
 
-\subsubsection{LLM-as-Judge (ACCR)}
-We leverage LLaMA-3.1-72B-Instruct as an evaluator using the G-VEval framework~\cite{tong2024gveval} with the ACCR rubric. This rubric assesses four dimensions: Accuracy (factual correctness of descriptions), Completeness (coverage of all visual content), Conciseness (appropriate level of detail without redundancy), and Relevance (focus on salient visual information). Each dimension is scored from 0 to 100.
+\subsubsection{Multi-Judge Consensus Ranking}
+We employ a Borda count voting scheme across multiple embedding models serving as independent judges. Each judge ranks VLMs based on the harmonic mean of coarse and fine-grained F1 scores (HM-CF), which integrates both holistic and granular semantic alignment. The final ranking aggregates judge-specific orderings through Borda points, where each model accumulates scores inversely proportional to its rank position under each judge. This multi-judge consensus approach mitigates individual embedding model biases and provides robust VLM performance assessment.
 
