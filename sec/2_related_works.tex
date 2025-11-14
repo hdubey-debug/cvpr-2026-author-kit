@@ -1,0 +1,57 @@
+\section{Related Work}
+\label{sec:related}
+
+\subsection{Video-Language Benchmarks}
+
+Existing video-language benchmarks have advanced the field through diverse evaluation paradigms, yet significant gaps remain in assessing long-form, paragraph-level video description capabilities. We categorize these benchmarks based on their primary evaluation focus and temporal scope.
+
+\subsubsection{Single-Sentence Captioning Benchmarks}
+Early video description benchmarks focused on single-sentence captions for short clips. MSVD~\cite{chen2011msvd} introduced one of the first large-scale video captioning datasets, while MSR-VTT~\cite{xu2016msr} provided broader open-domain coverage with 10K videos and 200K natural language descriptions. VATEX~\cite{wang2019vatex} extended this paradigm to multilingual settings with English and Chinese captions on Kinetics videos. While these benchmarks established foundational evaluation protocols and drove initial progress in video-text alignment, they inherently limit evaluation to isolated events without assessing long-form, paragraph-level descriptions.
+
+\subsubsection{Dense and Paragraph Captioning}
+Dense captioning benchmarks aimed to address temporal understanding by providing multiple descriptions per video. ActivityNet Captions~\cite{krishna2017dense} introduced dense event captioning with temporally localized descriptions, while YouCook2~\cite{zhou2018youcook2} focused on procedural understanding in cooking videos. TACoS~\cite{rohrbach2014tacos} provided multi-level descriptions for cooking activities. However, these benchmarks typically evaluate segments independently using metrics like METEOR. The SODA framework~\cite{fujita2020soda} addressed some temporal alignment issues but still relied primarily on n-gram overlap metrics without capturing higher-level semantic understanding.
+
+\subsubsection{Video Question Answering}
+Video QA benchmarks test reasoning capabilities through question-answer pairs. TVQA~\cite{lei2018tvqa} provided questions on TV show clips with subtitle and visual context, while TGIF-QA~\cite{jang2017tgif} focused on spatio-temporal reasoning with four question types. NExT-QA~\cite{xiao2021next} explicitly categorized questions into temporal, causal, and descriptive types to evaluate different reasoning capabilities. DramaQA~\cite{choi2020drama} emphasized character-centered understanding with hierarchical questions and rich annotations including character identities and relationships.
+
+Recent long-video understanding benchmarks have revealed significant challenges in temporal modeling. Video-MME~\cite{fu2024videomme} demonstrated substantial performance degradation as video length increases, while LongVideoBench~\cite{wu2024longvideo} showed that models struggle with questions requiring reference to earlier video content. MVBench~\cite{li2023mvbench} provided comprehensive evaluation across 20 video understanding tasks. However, these benchmarks primarily use multiple-choice formats that test discrete knowledge rather than requiring long-form description generation.
+
+\subsubsection{Specialized Benchmarks}
+Several benchmarks have targeted specific aspects of video understanding. Ego4D's Natural Language Queries task~\cite{grauman2022ego4d} requires temporal localization in long egocentric videos but outputs timestamps rather than descriptions. MovieGraphs~\cite{vicol2018moviegraphs} provided structured scene graphs for movie analysis but focused on graph-based reasoning rather than caption generation. M-VAD Names~\cite{pini2019mvad} specifically addressed character naming in video descriptions but was limited to naming accuracy.
+
+These existing benchmarks reveal fundamental gaps in evaluating long-form video description: most focus on short clips or independent segments and fail to provide holistic assessment of paragraph-level description capabilities. Our work addresses these limitations through systematic comparison of three evaluation families for long-form video description.
+
+\subsection{Vision Language Models}
+
+Recent advances in Vision Language Models have demonstrated remarkable progress in video understanding through diverse architectural innovations and training strategies. The landscape of Vision Language Models has evolved rapidly, with several architectural paradigms emerging for video understanding. Early approaches like VideoBERT~\cite{sun2019videobert} and CBT~\cite{sun2019contrastive} established foundations for video-text understanding through contrastive learning and masked language modeling. Recent transformer-based models have achieved significant advances through improved architectural designs and training strategies.
+
+Current state-of-the-art models employ diverse approaches to video understanding. VideoLLaMA3~\cite{cheng2024videollama2} integrates advanced temporal modeling mechanisms, while InternVL~\cite{chen2024internvl} provides unified multimodal understanding across images and videos. MiniCPM-V~\cite{yao2024minicpm} focuses on parameter-efficient video-language processing, and mPLUG-Owl3~\cite{ye2024mplugowl3} demonstrates strong performance through multi-granular visual understanding.
+
+Specialized architectures have emerged for specific video understanding tasks. LongVU~\cite{xu2024longvu} addresses extended video context modeling for long-form content, while ShareGPT4V~\cite{chen2023sharegpt4v} and VideoChat~\cite{li2023videochat} demonstrate strong performance in conversational video understanding. However, systematic evaluation of these models' long-form description capabilities remains limited, motivating our comprehensive assessment across three evaluation families.
+
+\subsection{Evaluation Methodologies for Video Description}
+
+The evolution of evaluation methodologies for video description has progressed from surface-level lexical metrics to sophisticated semantic and discourse-level assessments. Each evaluation paradigm offers distinct insights into model capabilities while presenting unique limitations for long-form description tasks.
+
+\subsubsection{Traditional N-gram Metrics}
+Classical evaluation metrics originated from machine translation and text summarization. BLEU~\cite{papineni2002bleu} computes precision of n-gram matches between candidate and reference texts, while ROUGE~\cite{lin2004rouge} focuses on recall-oriented evaluation with multiple variants (ROUGE-L, ROUGE-1, ROUGE-2). METEOR~\cite{banerjee2005meteor} extends these approaches by incorporating stemming, synonym matching, and word reordering. CIDEr~\cite{vedantam2015cider} was specifically designed for image captioning by emphasizing consensus among reference descriptions.
+
+While these metrics provide standardized evaluation protocols and enable reproducible comparisons, they fundamentally measure surface-level lexical overlap rather than semantic understanding. For long-form video description tasks, traditional metrics often fail to capture crucial aspects of comprehensive visual understanding.
+
+\subsubsection{Embedding-based Semantic Similarity}
+Recent advances in representation learning have enabled evaluation methods that capture semantic similarity beyond exact word matches. BERTScore~\cite{zhang2019bertscore} leverages contextual embeddings from BERT to compute token-level similarity with improved correlation to human judgment. Sentence-level approaches using models like Sentence-BERT~\cite{reimers2019sentence} enable holistic semantic comparison between generated and reference descriptions.
+
+State-of-the-art embedding models have demonstrated superior performance in semantic similarity tasks. NV-Embed~\cite{lee2024nv} provides high-dimensional representations optimized for retrieval tasks, while BGE models~\cite{chen2024bge} incorporate in-context learning capabilities. Nomic-Embed and Jina embeddings~\cite{gunther2024jina} offer efficient alternatives with strong performance across diverse domains. However, most embedding-based metrics still lack explicit consideration of temporal structure crucial for video understanding.
+
+\subsubsection{LLM-as-Judge Frameworks}
+G-Eval~\cite{liu2023g} pioneered LLM-based evaluation using detailed rubrics with chain-of-thought reasoning and form-filling for consistent scoring, demonstrating improved correlation with human judgment over traditional metrics. G-VEval~\cite{tong2024gveval} extends this paradigm to multimodal evaluation, leveraging GPT-4o's capabilities to assess video captions through the ACCR rubric (Accuracy, Completeness, Conciseness, Relevance) across three modes: reference-free, reference-only, and combined. This framework achieves superior correlation with human annotations as measured by Kendall tau-b and tau-c coefficients.
+
+The traditional metrics described above, while foundational to evaluation frameworks, have notable limitations for long-form description tasks. Their focus on surface-level lexical overlap often fails to capture semantic meaning and comprehensive visual understanding that are essential for paragraph-level video description assessment. This has motivated the development of more sophisticated evaluation approaches that better align with human judgment of text quality.
+
+\subsection{Gaps in Current Evaluation Practices}
+
+Current evaluation practices for video description tasks reveal critical limitations that motivate our comprehensive multi-faceted assessment approach. Despite the rich landscape of evaluation methodologies, systematic comparison of different approaches for video description tasks remains limited. Most video-language studies rely on single evaluation metrics (typically BLEU~\cite{papineni2002bleu} or CIDEr~\cite{vedantam2015cider}) or combine multiple metrics without thorough analysis of their complementary strengths and limitations. This practice obscures important insights about model capabilities and evaluation methodology effectiveness.
+
+Recent work has begun addressing these gaps through preliminary comparisons between traditional and embedding-based metrics for image captioning and exploration of LLM-based evaluation for multimodal tasks. However, comprehensive analysis of evaluation methodology interactions specifically for video description tasks remains unexplored.
+
+Our work addresses this gap by providing systematic comparison of three evaluation families for long-form video description: N-gram overlap metrics, embedding-based semantic similarity, and LLM-as-judge assessment. Through careful experimental design using curated video content with eliminated proper nouns, we reveal important insights about divergent model strengths across families. This analysis contributes essential guidance for application-driven model selection and highlights the value of multi-faceted evaluation protocols for long-form video description.

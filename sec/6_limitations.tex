@@ -1,0 +1,8 @@
+\section{Limitations}
+\label{sec:limitations}
+
+CLIP-CC-Bench's dataset of 200 movie clips with 402-word expert annotations provides focused evaluation but limits generalizability. The scale constrains statistical power, while the narrative film domain excludes instructional, surveillance, and user-generated content. Our English-only scope and proper noun elimination create controlled but potentially artificial evaluation conditions. Single reference descriptions cannot capture all valid descriptive perspectives.
+
+The substantial divergence in model rankings across metric families complicates performance interpretation. VideoLLaMA3 dominates N-gram metrics while MiniCPM-V excels in ACCR assessment, reflecting fundamental differences in what each metric captures. This inconsistency challenges practitioners seeking definitive model selection guidance. LLaMA-3.1-72B as judge introduces bounded biases, particularly for specialized visual phenomena. Heterogeneous frame processing (8-600 frames across models) introduces comparison confounds despite reflecting realistic deployment scenarios.
+
+These constraints suggest future directions: expanded scale and domains, multiple references, cross-linguistic frameworks, and efficiency benchmarks. Nevertheless, CLIP-CC-Bench advances VLM evaluation through rigorous methodology, with insights about metric divergence and architectural primacy over parameter count extending beyond these limitations.

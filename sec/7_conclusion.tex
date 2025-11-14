@@ -1,0 +1,10 @@
+\section{Conclusion}
+\label{sec:conclusion}
+
+This work introduces CLIP-CC-Bench, an evaluation suite for long-form, paragraph-level video description assessment. Our framework addresses critical gaps in current benchmarking by systematically applying three evaluation families: N-gram overlap metrics, embedding-based semantic similarity, and LLM-as-judge (ACCR) assessment across 200 carefully curated 90-second movie clips with expert-generated descriptions averaging 402 words.
+
+Our analysis of 14 state-of-the-art Vision Language Models reveals substantial divergence across evaluation families. VideoLLaMA3 excels in N-gram overlap metrics and embedding-based semantic similarity, while MiniCPM-V leads in LLM-as-judge assessment. The wide performance variance among models with similar parameter counts demonstrates that architectural design and training methodology are the primary determinants of long-form description capabilities.
+
+These findings highlight the importance of application-driven model selection: different use cases may prioritize lexical accuracy through N-gram overlap metrics, semantic understanding through embedding-based similarity, or discourse quality through LLM-as-judge evaluation. The substantial headroom revealed across all three evaluation families indicates significant opportunities for advancement in long-form video description capabilities.
+
+By providing standardized evaluation protocols, reproducible scoring mechanisms, and systematic proper noun elimination to focus on fundamental visual understanding, CLIP-CC-Bench establishes a practical framework for evaluating long-form video description that complements existing short-clip and QA-based benchmarks. All resources, including evaluation scripts and model outputs, are publicly available to facilitate continued progress in video-language understanding.

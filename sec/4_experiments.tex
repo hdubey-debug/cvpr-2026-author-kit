@@ -1,0 +1,58 @@
+\section{Experiments}
+\label{sec:experiments}
+
+We evaluate 14 state-of-the-art Vision Language Models on CLIP-CC-Bench using three evaluation families to analyze their long-form video description capabilities.
+
+\subsection{Model Selection and Inference}
+
+We evaluate 14 representative VLMs spanning different architectural paradigms and training methodologies, as summarized in \cref{tab:models}. To ensure comprehensive evaluation of each model's capabilities, we utilize their maximum supported frame capacity, allowing each VLM to process videos at its full potential rather than imposing artificial constraints.
+
+\begin{table}[t]
+\centering
+\caption{Vision Language Models evaluated on CLIP-CC-Bench.}
+\label{tab:models}
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{llcc}
+\toprule
+\textbf{Model} & \textbf{Architecture Family} & \textbf{Parameters} & \textbf{Max Frames} \\
+\midrule
+LLaVA-OneVision & Transformer & 7B & 8 \\
+VideoLLaMA3 & Transformer & 7B & 32 \\
+InternVL2 & Transformer & 8B & 12 \\
+\midrule
+LongVU & Efficient & 7B & -- \\
+LongVA & Efficient & 7B & 128 \\
+MiniCPM-V & Efficient & 8B & 32 \\
+\midrule
+Video-XL & Specialized & 7B & 16 \\
+TimeChat & Specialized & 7B & 16 \\
+TS-LLaVA & Specialized & 7B & 32 \\
+VideoChat-Flash & Specialized & 2B & 16 \\
+\midrule
+Oryx & Multimodal & 7B & -- \\
+ViLAMP & Multimodal & 7B & 600 \\
+mPLUG-Owl3 & Multimodal & 7B & 16 \\
+ShareGPT4Video & Multimodal & 8B & -- \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+All models generate paragraph-length descriptions for each of the 200 video clips using standardized inference parameters while operating at their maximum frame processing capacity.
+
+\subsection{Evaluation Protocol}
+We standardize evaluation with: (1) uniform prompting: \textit{``Provide a detailed description of the video, covering all significant events, the actions of each character or entity, any camera movements, the attributes of the characters or entities, and a description of the scene.''}, (2) consistent generation parameters (temperature=0.0, max\_tokens=5000), and (3) deterministic inference with greedy decoding to ensure reproducible and consistent outputs.
+
+\subsection{Evaluation Methodologies}
+
+Our comprehensive evaluation employs three complementary families of metrics to assess different aspects of long-form video description quality. This multi-faceted approach reveals model capabilities across lexical, semantic, and discourse-level dimensions.
+
+\subsubsection{N-gram Overlap}
+We compute BLEU-1 and BLEU-4~\cite{papineni2002bleu} to measure precision of unigram and 4-gram matches, ROUGE-1, ROUGE-4, ROUGE-L, and ROUGE-Lsum~\cite{lin2004rouge} for recall-oriented assessment, and METEOR~\cite{banerjee2005meteor} for synonym and paraphrase matching.
+
+\subsubsection{Embedding-Based Similarity}
+We compute normalized cosine similarity between generated and reference descriptions using seven state-of-the-art text encoders: BGE-EN-ICL~\cite{li2024bgeenicl}, E5-Mistral-7B~\cite{wang2024e5}, Jasper-Envision~\cite{zhang2024jasper}, Jina-v4~\cite{wang2024jina}, Nomic-Embed-Text-v1.5~\cite{nussbaum2024nomic}, NV-Embed~\cite{lee2024nv}, and Stella-EN-1.5B~\cite{dunlap2024stella}.
+
+\subsubsection{LLM-as-Judge (ACCR)}
+We leverage LLaMA-3.1-72B-Instruct as an evaluator using the G-VEval framework~\cite{tong2024gveval} with the ACCR rubric. This rubric assesses four dimensions: Accuracy (factual correctness of descriptions), Completeness (coverage of all visual content), Conciseness (appropriate level of detail without redundancy), and Relevance (focus on salient visual information). Each dimension is scored from 0 to 100.
+

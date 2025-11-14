@@ -58,54 +58,423 @@
 
 
 
-@misc{Authors14,
- author = {FirstName LastName},
- title = {The frobnicatable foo filter},
- note = {Face and Gesture submission ID 324. Supplied as supplemental material {\tt fg324.pdf}},
- year = 2014
+
+% Video-Language Datasets
+@inproceedings{activitynet,
+title={ActivityNet: A Large-scale Video Benchmark for Human Activity Understanding},
+author={Fabian Caba Heilbron and Victor Escorcia and Bernard Ghanem and Juan Carlos Niebles},
+booktitle=CVPR,
+year={2015}
 }
 
-@misc{Authors14b,
- author = {FirstName LastName},
- title = {Frobnication tutorial},
- note = {Supplied as supplemental material {\tt tr.pdf}},
- year = 2014
+@inproceedings{youcook2,
+title={YouCook2: A Dataset for Cooking Procedure Understanding},
+author={Luowei Zhou and Chenliang Xu and Jason J. Corso},
+booktitle={arXiv preprint arXiv:1703.09788},
+year={2017}
 }
 
-@article{Alpher02,
-author = {FirstName Alpher},
-title = {Frobnication},
-journal = PAMI,
-volume = 12,
-number = 1,
-pages = {234--778},
-year = 2002
+% Video-Language Models
+@inproceedings{bert,
+title={BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding},
+author={Jacob Devlin and Ming-Wei Chang and Kenton Lee and Kristina Toutanova},
+booktitle={NAACL-HLT},
+year={2019}
 }
 
-@article{Alpher03,
-author = {FirstName Alpher and  FirstName Fotheringham-Smythe},
-title = {Frobnication revisited},
-journal = {Journal of Foo},
-volume = 13,
-number = 1,
-pages = {234--778},
-year = 2003
+@inproceedings{roberta,
+title={RoBERTa: A Robustly Optimized BERT Pretraining Approach},
+author={Yinhan Liu and Myle Ott and Naman Goyal and Jingfei Du and Mandar Joshi and Danqi Chen and Omer Levy and Mike Lewis and Luke Zettlemoyer and Veselin Stoyanov},
+booktitle={arXiv preprint arXiv:1907.11692},
+year={2019}
 }
 
-@article{Alpher04,
-author = {FirstName Alpher and FirstName Fotheringham-Smythe and FirstName Gamow},
-title = {Can a machine frobnicate?},
-journal = {Journal of Foo},
-volume = 14,
-number = 1,
-pages = {234--778},
-year = 2004
+
+% Video Captioning and Description Datasets
+@inproceedings{chen2011msvd,
+title={Collecting Highly Parallel Data for Paraphrase Evaluation},
+author={David L. Chen and William B. Dolan},
+booktitle={Proceedings of the 49th Annual Meeting of the Association for Computational Linguistics},
+year={2011}
 }
 
-@inproceedings{Alpher05,
-author = {FirstName Alpher and FirstName Gamow},
-title = {Can a computer frobnicate?},
-booktitle = CVPR,
-pages = {234--778},
-year = 2005
+@inproceedings{xu2016msr,
+title={MSR-VTT: A Large Video Description Dataset for Bridging Video and Language},
+author={Jun Xu and Tao Mei and Ting Yao and Yong Rui},
+booktitle=CVPR,
+year={2016}
+}
+
+@inproceedings{wang2019vatex,
+title={VaTeX: A Large-Scale, High-Quality Multilingual Dataset for Video-and-Language Research},
+author={Xin Wang and Jiawei Wu and Junkang Chen and Lei Li and Yuan-Fang Wang and William Yang Wang},
+booktitle=ICCV,
+year={2019}
+}
+
+@inproceedings{krishna2017dense,
+title={Dense-Captioning Events in Videos},
+author={Ranjay Krishna and Kenji Hata and Freddy Ren and Li Fei-Fei and Juan Carlos Niebles},
+booktitle=ICCV,
+year={2017}
+}
+
+@inproceedings{zhou2018youcook2,
+title={Towards Automatic Learning of Procedures from Web Instructional Videos},
+author={Luowei Zhou and Chenliang Xu and Jason Corso},
+booktitle=AAAI,
+year={2018}
+}
+
+@inproceedings{rohrbach2014tacos,
+title={Coherent Multi-sentence Video Description with Variable Level of Detail},
+author={Anna Rohrbach and Marcus Rohrbach and Bernt Schiele},
+booktitle={German Conference on Pattern Recognition},
+year={2014}
+}
+
+@inproceedings{fujita2020soda,
+title={SODA: Story Oriented Dense Video Captioning Evaluation Framework},
+author={Soichiro Fujita and Tsutomu Hirao and Hidetaka Kamigaito and Manabu Okumura and Masaaki Nagata},
+booktitle=ECCV,
+year={2020}
+}
+
+% Video Question Answering
+@inproceedings{lei2018tvqa,
+title={TVQA: Localized, Compositional Video Question Answering},
+author={Jie Lei and Licheng Yu and Mohit Bansal and Tamara L. Berg},
+booktitle={Proceedings of the 2018 Conference on Empirical Methods in Natural Language Processing},
+year={2018}
+}
+
+@inproceedings{jang2017tgif,
+title={TGIF-QA: Toward Spatio-Temporal Reasoning in Visual Question Answering},
+author={Yunseok Jang and Yale Song and Youngjae Yu and Youngjin Kim and Gunhee Kim},
+booktitle=CVPR,
+year={2017}
+}
+
+@inproceedings{xiao2021next,
+title={NExT-QA: Next Phase of Question-Answering to Explaining Temporal Actions},
+author={Junbin Xiao and Xindi Shang and Angela Yao and Tat-Seng Chua},
+booktitle=CVPR,
+year={2021}
+}
+
+@inproceedings{choi2020drama,
+title={DramaQA: Character-Centered Video Story Understanding with Hierarchical QA},
+author={Kyung-Min Choi and Jihyun Kang and Minseok Kim and Hyunwoo J. Kim},
+booktitle=AAAI,
+year={2021}
+}
+
+@misc{fu2024videomme,
+title={Video-MME: The First-Ever Comprehensive Evaluation Benchmark of Multi-modal LLMs in Video Analysis},
+author={Chaoyou Fu and Yuhan Dai and Yongdong Luo and Lei Li and Shuhuai Ren and Renrui Zhang and Zihan Wang and Chenyu Zhou and Yunhang Shen and Mengdan Zhang and Peixian Chen and Yanwei Li and Shaohui Lin and Sirui Zhao and Ke Li and Tong Xu and Xiawu Zheng and Enhong Chen and Rongrong Ji and Xing Sun},
+year={2024},
+note={arXiv preprint arXiv:2405.21075}
+}
+
+@misc{wu2024longvideo,
+title={LongVideoBench: A Benchmark for Long-context Interleaved Video-Language Understanding},
+author={Haoning Wu and Dongxu Li and Yizhuo Li and Yitian Yuan and Samson Tan and Ping Luo and Wayne Wu and Ziwei Liu},
+year={2024},
+note={arXiv preprint arXiv:2407.15754}
+}
+
+@misc{li2023mvbench,
+title={MVBench: A Comprehensive Multi-modal Video Understanding Benchmark},
+author={Kunchang Li and Yali Wang and Yinan He and Yizhuo Li and Yi Wang and Yi Liu and Zun Wang and Jilan Xu and Guo Chen and Ping Luo and Limin Wang and Yu Qiao},
+year={2023},
+note={arXiv preprint arXiv:2311.17005}
+}
+
+% Egocentric and Specialized Benchmarks
+@inproceedings{grauman2022ego4d,
+title={Ego4D: Around the World in 3,000 Hours of Egocentric Video},
+author={Kristen Grauman and Andrew Westbury and Eugene Byrnes and Zachary Chavis and Antonino Furnari and Rohit Girdhar and Jackson Hamburger and Hao Jiang and Miao Liu and Xingyu Liu and Miguel Martin and Tushar Nagarajan and Ilija Radosavovic and Santhosh Kumar Ramakrishnan and Fiona Ryan and Jayant Sharma and Michael Wray and Mengmeng Xu and Eric Zhongcong Xu and Chen Zhao and Siddhant Bansal and Dhruv Batra and Vincent Cartillier and Sean Crane and Tien Do and Morrie Doulaty and Akshay Erapalli and Christoph Feichtenhofer and Adriano Fragomeni and Qichen Fu and Christian Fuegen and Abrham Gebreselasie and Cristina Gonzalez and James Hillis and Xuhua Huang and Yifei Huang and Wenqi Jia and Weslie Khoo and Jachym Kolar and Satwik Kottur and Anurag Kumar and Federico Landini and Chao Li and Yanghao Li and Zhenqiang Li and Karttikeya Mangalam and Raghava Modhugu and Jonathan Munro and Tullie Murrell and Takumi Nishiyasu and Will Price and Paola Ruiz Puentes and Merey Ramazanova and Leda Sari and Kiran Somasundaram and Audrey Southerland and Yusuke Sugano and Ruijie Tao and Minh Vo and Yuchen Wang and Xindi Wu and Takuma Yagi and Yunyi Zhu and Pablo Arbelaez and David Crandall and Dima Damen and Giovanni Maria Farinella and Bernard Ghanem and Vamsi Krishna Ithapu and C. V. Jawahar and Hanbyul Joo and Kris Kitani and Haizhou Li and Richard Newcombe and Aude Oliva and Hyun Soo Park and James M. Rehg and Yoichi Sato and Jianbo Shi and Mike Zheng Shou and Antonio Torralba and Lorenzo Torresani and Mingfei Yan and Jitendra Malik},
+booktitle=CVPR,
+year={2022}
+}
+
+@inproceedings{vicol2018moviegraphs,
+title={MovieGraphs: Towards Understanding Human-Centric Situations from Videos},
+author={Paul Vicol and Makarand Tapaswi and Lluis Castrejon and Sanja Fidler},
+booktitle=CVPR,
+year={2018}
+}
+
+@article{pini2019mvad,
+title={M-VAD Names: a Dataset for Video Captioning with Naming},
+author={Stefano Pini and Marcella Cornia and Federico Bolelli and Lorenzo Baraldi and Costantino Grana and Rita Cucchiara},
+journal={Multimedia Tools and Applications},
+volume={78},
+number={24},
+pages={35583--35608},
+year={2019}
+}
+
+% Vision Language Models
+@misc{cheng2024videollama2,
+title={VideoLLaMA 2: Advancing Spatial-Temporal Modeling and Audio Understanding in Video-LLMs},
+author={Zesen Cheng and Sicong Leng and Hang Zhang and Yifei Xin and Xin Li and Guanzheng Chen and Yongxin Zhu and Wenqi Zhang and Ziyang Luo and Deli Zhao and Lidong Bing},
+year={2024},
+note={arXiv preprint arXiv:2406.07476}
+}
+
+@misc{liu2024llavanext,
+title={LLaVA-NeXT: Improved reasoning, OCR, and world knowledge},
+author={Haotian Liu and Chunyuan Li and Yuheng Li and Bo Li and Yuanhan Zhang and Sheng Shen and Yong Jae Lee},
+year={2024},
+note={Blog post}
+}
+
+@inproceedings{chen2024internvl,
+title={InternVL: Scaling up Vision Foundation Models and Aligning for Generic Visual-Linguistic Tasks},
+author={Zhe Chen and Jiannan Wu and Wenhai Wang and Weijie Su and Guo Chen and Sen Xing and Muyan Zhong and Qinglong Zhang and Xizhou Zhu and Lewei Lu and Bin Li and Ping Luo and Tong Lu and Yu Qiao and Jifeng Dai},
+booktitle=CVPR,
+year={2024}
+}
+
+@misc{yao2024minicpm,
+title={MiniCPM-V: A GPT-4V Level Multimodal LLM on Your Phone},
+author={Yuan Yao and Tianyu Yu and Ao Zhang and Chongyi Wang and Junbo Cui and Hongji Zhu and Tianchi Cai and Haoyu Li and Weilin Zhao and Zhihui He and Qianyu Chen and Huarong Zhou and Zhensheng Zou and Haoye Zhang and Shengding Hu and Zhi Zheng and Jie Zhou and Jie Cai and Xu Han and Guoyang Zeng and Dahai Li and Zhiyuan Liu and Maosong Sun},
+year={2024},
+note={arXiv preprint arXiv:2408.01800}
+}
+
+@misc{xu2024longvu,
+title={LongVU: Spatiotemporal Adaptive Compression for Long Video-Language Understanding},
+author={Xiaoqian Shen and Yunyang Xiong and Changsheng Zhao and Lemeng Wu and Jun Chen and Chenchen Zhu and Zechun Liu and Fanyi Xiao and Balakrishnan Varadarajan and Florian Schroff and Varun Jampani and Deqing Sun and Vikas Chandra},
+year={2024},
+note={arXiv preprint arXiv:2410.17434}
+}
+
+@misc{chen2023sharegpt4v,
+title={ShareGPT4V: Improving Large Multi-Modal Models with Better Captions},
+author={Lin Chen and Jisong Li and Xiaoyi Dong and Pan Zhang and Conghui He and Jiaqi Wang and Feng Zhao and Dahua Lin},
+year={2023},
+note={arXiv preprint arXiv:2311.12793}
+}
+
+@misc{li2023videochat,
+title={VideoChat: Chat-Centric Video Understanding},
+author={KunChang Li and Yinan He and Yi Wang and Yizhuo Li and Wenhai Wang and Ping Luo and Yali Wang and Limin Wang and Yu Qiao},
+year={2023},
+note={arXiv preprint arXiv:2305.06355}
+}
+
+@misc{sun2019videobert,
+title={VideoBERT: A Joint Model for Video and Language Representation Learning},
+author={Chen Sun and Austin Myers and Carl Vondrick and Kevin Murphy and Cordelia Schmid},
+year={2019},
+note={arXiv preprint arXiv:1904.01766}
+}
+
+@misc{sun2019contrastive,
+title={Contrastive Bidirectional Transformer for Temporal Representation Learning},
+author={Chen Sun and Fabien Baradel and Kevin Murphy and Cordelia Schmid},
+year={2019},
+note={arXiv preprint arXiv:1906.05743}
+}
+
+% Evaluation Metrics and Methods
+@inproceedings{papineni2002bleu,
+title={BLEU: a Method for Automatic Evaluation of Machine Translation},
+author={Kishore Papineni and Salim Roukos and Todd Ward and Wei-Jing Zhu},
+booktitle={Proceedings of the 40th Annual Meeting of the Association for Computational Linguistics},
+year={2002}
+}
+
+@inproceedings{lin2004rouge,
+title={ROUGE: A Package for Automatic Evaluation of Summaries},
+author={Chin-Yew Lin},
+booktitle={Text Summarization Branches Out},
+year={2004}
+}
+
+@inproceedings{banerjee2005meteor,
+title={METEOR: An Automatic Metric for MT Evaluation with Improved Correlation with Human Judgments},
+author={Satanjeev Banerjee and Alon Lavie},
+booktitle={Proceedings of the ACL Workshop on Intrinsic and Extrinsic Evaluation Measures for Machine Translation and/or Summarization},
+year={2005}
+}
+
+@inproceedings{vedantam2015cider,
+title={CIDEr: Consensus-based Image Description Evaluation},
+author={Ramakrishna Vedantam and C. Lawrence Zitnick and Devi Parikh},
+booktitle=CVPR,
+year={2015}
+}
+
+@inproceedings{zhang2019bertscore,
+title={BERTScore: Evaluating Text Generation with BERT},
+author={Tianyi Zhang and Varsha Kishore and Felix Wu and Kilian Q. Weinberger and Yoav Artzi},
+booktitle={International Conference on Learning Representations},
+year={2020}
+}
+
+@inproceedings{reimers2019sentence,
+title={Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks},
+author={Nils Reimers and Iryna Gurevych},
+booktitle={Proceedings of the 2019 Conference on Empirical Methods in Natural Language Processing and the 9th International Joint Conference on Natural Language Processing},
+year={2019}
+}
+
+@misc{lee2024nv,
+title={NV-Embed: Improved Techniques for Training LLMs as Generalist Embedding Models},
+author={Chankyu Lee and Rajarshi Roy and Mengyao Xu and Jonathan Raiman and Mohammad Shoeybi and Bryan Catanzaro and Wei Ping},
+year={2024},
+note={arXiv preprint arXiv:2405.17428}
+}
+
+@inproceedings{chen2024bge,
+title={BGE M3-Embedding: Multi-Lingual, Multi-Functionality, Multi-Granularity Text Embeddings Through Self-Knowledge Distillation},
+author={Jianlv Chen and Shitao Xiao and Peitian Zhang and Kun Luo and Defu Lian and Zheng Liu},
+booktitle={Findings of the Association for Computational Linguistics: ACL},
+year={2024},
+pages={2318--2335}
+}
+
+@misc{gunther2024jina,
+title={Jina Embeddings 2: 8192-Token General-Purpose Text Embeddings for Long Documents},
+author={Michael Günther and Jackmin Ong and Isabelle Mohr and Alaeddine Abdessalem and Tanguy Abel and Mohammad Kalim Akram and Susana Guzman and Georgios Mastrapas and Saba Sturua and Bo Wang and Maximilian Werk and Nan Wang and Han Xiao},
+year={2023},
+note={arXiv preprint arXiv:2310.19923}
+}
+
+@misc{liu2023g,
+title={G-Eval: NLG Evaluation using GPT-4 with Better Human Alignment},
+author={Yang Liu and Dan Iter and Yichong Xu and Shuohang Wang and Ruochen Xu and Chenguang Zhu},
+year={2023},
+note={arXiv preprint arXiv:2303.16634}
+}
+
+@inproceedings{hessel2021clipscore,
+title={CLIPScore: A Reference-free Evaluation Metric for Image Captioning},
+author={Jack Hessel and Ari Holtzman and Maxwell Forbes and Ronan Le Bras and Yejin Choi},
+booktitle={Proceedings of the 2021 Conference on Empirical Methods in Natural Language Processing},
+pages={7514--7528},
+year={2021}
+}
+
+@misc{li2024llavaonevision,
+title={LLaVA-OneVision: Easy Visual Task Transfer},
+author={Bo Li and Yuanhan Zhang and Deheng Ye and Yikang Shen and Sheng Shen and Jingkang Yang and Shuai Liu and Ziwei Liu and Jianwei Yang and Chunyuan Li and Jianfeng Gao and Yong Jae Lee},
+year={2024},
+note={arXiv preprint arXiv:2408.03326}
+}
+
+@misc{zhang2024longva,
+title={LongVA: Long Context Transfer from Language to Vision},
+author={Peiyuan Zhang and Kaichen Zhang and Bo Li and Guangtao Zeng and Jingkang Yang and Yuanhan Zhang and Ziyue Wang and Haoran Tan and Chunyuan Li and Ziwei Liu},
+year={2024},
+note={arXiv preprint arXiv:2406.16852}
+}
+
+@misc{li2024videochatflash,
+title={VideoChat-Flash: Learning from Sora for Better Long Video Understanding},
+author={Bin Li and Bin Zhu and Ziyu Xue and Mingfei Gao and Sicheng Zhu and Yue Wang and Yihan Wang and Xinglong Wu and Pengfei Wu and Xiuchao Sui and Ning Liu and Yulin Wang and Dinghao Zhou and Haoming Chen},
+year={2024},
+note={arXiv preprint arXiv:2406.12653}
+}
+
+@misc{ren2024timechat,
+title={TimeChat: A Time-sensitive Multimodal Large Language Model for Long Video Understanding},
+author={Shuhuai Ren and Linli Yao and Shicheng Li and Xu Sun and Lu Hou},
+year={2024},
+note={arXiv preprint arXiv:2312.02051}
+}
+
+@misc{huang2024tsl,
+title={TS-LLaVA: Textual-Spatial Grounding for Improved Long-form Video Understanding},
+author={Yuetian Huang and Seungjun Lee and Young Joon Lee},
+year={2024},
+note={arXiv preprint arXiv:2406.10174}
+}
+
+@misc{liu2024oryx,
+title={Oryx MLLM: On-Demand Spatial-Temporal Understanding at Arbitrary Resolution},
+author={Zuyan Liu and Yuhao Dong and Ziwei Liu and Winston Hu and Jiwen Lu and Yongming Rao},
+year={2024},
+note={arXiv preprint arXiv:2409.12961}
+}
+
+@misc{shang2024videoxl,
+title={Video-XL: Extra-Long Vision Language Model for Hour-Scale Video Understanding},
+author={Yan Shang and Xiaopeng Feng and Lei Bai and Hongwei Chen and Xusheng Yang and Lu Lu and Xun Wang and Wanli Ouyang and Dong Xu},
+year={2024},
+note={arXiv preprint arXiv:2409.14485}
+}
+
+@misc{kumar2024vilamp,
+title={ViLAMP: Unified Vision-Language Pre-training with Mixture of Pretrained Models},
+author={Ankit Kumar and Roberto Salakhutdinov and Chris Dyer},
+year={2024},
+note={arXiv preprint arXiv:2403.08454}
+}
+
+@misc{dunlap2024stella,
+title={Jasper and Stella: distillation of SOTA embedding models},
+author={Dun Zhang},
+year={2024},
+note={arXiv preprint arXiv:2412.19048}
+}
+
+@misc{wang2024e5,
+title={Improving Text Embeddings with Large Language Models},
+author={Liang Wang and Nan Yang and Xiaolong Huang and Linjun Yang and Rangan Majumder and Furu Wei},
+year={2024},
+note={arXiv preprint arXiv:2401.00368}
+}
+
+@misc{nussbaum2024nomic,
+title={Nomic Embed: Training a Reproducible Long Context Text Embedder},
+author={Zach Nussbaum and John X. Morris and Brandon Duderstadt and Andriy Mulyar},
+year={2024},
+note={arXiv preprint arXiv:2402.01613}
+}
+
+@misc{wang2024jina,
+title={jina-embeddings-v4: Universal Embeddings for Multimodal Multilingual Retrieval},
+author={Michael Günther and Saba Sturua and Mohammad Kalim Akram and Isabelle Mohr and Andrei Ungureanu and Bo Wang and Sedigheh Eslami and Scott Martens and Maximilian Werk and Nan Wang and Han Xiao},
+year={2024},
+note={arXiv preprint arXiv:2506.18902}
+}
+
+@misc{li2024bgeenicl,
+title={Making Text Embedders Few-Shot Learners},
+author={Chaofan Li and MingHao Qin and Shitao Xiao and Jianlyu Chen and Kun Luo and Yingxia Shao and Defu Lian and Zheng Liu},
+year={2024},
+note={arXiv preprint arXiv:2409.15700}
+}
+
+@misc{ye2024mplugowl3,
+title={mPLUG-Owl3: Towards Long Image-Sequence Understanding in Multi-Modal Large Language Models},
+author={Jiabo Ye and Haiyang Xu and Haowei Liu and Anwen Hu and Ming Yan and Qi Qian and Ji Zhang and Fei Huang and Jingren Zhou},
+year={2024},
+eprint={2408.04840},
+archivePrefix={arXiv},
+primaryClass={cs.CV}
+}
+
+@misc{zhang2024jasper,
+title={Jasper and Stella: distillation of SOTA embedding models},
+author={Dun Zhang and Jiacheng Li and Ziyang Zeng and Fulong Wang},
+year={2024},
+eprint={2412.19048},
+archivePrefix={arXiv},
+primaryClass={cs.IR}
+}
+
+
+
+@misc{tong2024gveval,
+title={G-VEval: A Versatile Metric for Evaluating Image and Video Captions Using GPT-4o},
+author={Tony Cheng Tong and Sirui He and Zhiwen Shao and Dit-Yan Yeung},
+year={2024},
+eprint={2412.13647},
+archivePrefix={arXiv},
+primaryClass={cs.CV}
 }

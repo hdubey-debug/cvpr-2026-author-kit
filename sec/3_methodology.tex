@@ -1,0 +1,79 @@
+\section{Methodology}
+\label{sec:methodology}
+
+This section details the construction of CLIP-CC-Bench, a carefully curated dataset designed to evaluate long-form, paragraph-level video description capabilities.
+
+\subsection{Dataset Construction Principles}
+
+Our dataset construction methodology prioritizes temporal diversity and visual richness while systematically eliminating potential confounds from proper nouns and memorized associations. These principles ensure that CLIP-CC-Bench evaluates fundamental video understanding capabilities for long-form, paragraph-level description generation.
+
+\subsubsection{Temporal Scope and Content Selection}
+Our video content selection emphasizes temporal and visual diversity to provide comprehensive evaluation of VLM capabilities across different cinematographic styles and narrative structures. We curate content that differs significantly from contemporary training data patterns, ensuring models are challenged beyond their typical training distribution through diverse visual effects techniques, color palettes, and production methodologies.
+
+The temporal scope of our dataset ensures sufficient distance from recent internet content to minimize potential data contamination issues. Given that most contemporary VLMs are trained on internet-scraped data heavily biased toward recent content, our careful curation reduces the likelihood that models have encountered similar visual patterns during training.
+
+Our content curation process focuses exclusively on movie clips that contain complex scenes with multiple actors, dynamic camera movements, and rich visual storytelling elements. We prioritize clips that demonstrate temporal progression and character interactions that require sophisticated understanding to describe accurately.
+
+\subsubsection{Proper Noun Elimination Strategy}
+A fundamental design principle of CLIP-CC-Bench is the systematic elimination of proper nouns from all ground-truth descriptions. This design choice addresses a critical limitation in existing benchmarks, where models may leverage memorized associations rather than demonstrating genuine visual understanding.
+
+Our annotation guidelines explicitly prohibit the use of:
+\begin{itemize}
+    \item Character names and celebrity identifications
+    \item Specific geographical locations and landmarks
+    \item Brand names and commercial references
+    \item Cultural or historical proper nouns
+    \item Fictional universe-specific terminology
+\end{itemize}
+
+Instead, annotators employ descriptive alternatives such as \textit{``a man in a black jacket''} rather than character names, or \textit{``a luxury sedan''} instead of specific car models. This approach ensures that evaluation focuses on fundamental visual understanding capabilities rather than world knowledge retrieval.
+
+\subsection{Video Selection and Processing}
+
+We implement rigorous selection and processing protocols to ensure consistent quality and comprehensive coverage across our evaluation suite. Our systematic approach balances visual complexity with evaluation standardization requirements for long-form video description assessment.
+
+\subsubsection{Content Criteria}
+Our video selection process employs rigorous criteria to ensure benchmark quality and diversity. Each selected clip must satisfy the following requirements:
+
+\textbf{Duration Standardization:} All clips are standardized to approximately 90 seconds to ensure consistent evaluation conditions while providing sufficient content for comprehensive description.
+
+\textbf{Visual Complexity:} Selected scenes must contain multiple visual elements including character interactions, environmental details, and temporal dynamics that require sophisticated understanding to describe accurately.
+
+\textbf{Self-Contained Content:} Clips must represent self-contained segments that can be understood without external context, ensuring fair evaluation across different models.
+
+\textbf{Technical Quality:} All video content maintains consistent resolution and audio quality standards to prevent technical artifacts from influencing model performance.
+
+
+\subsection{Dataset Statistics and Characteristics}
+
+The final CLIP-CC-Bench dataset comprises 200 carefully curated video clips with corresponding expert-generated descriptions. Key statistics include:
+
+\begin{itemize}
+    \item \textbf{Total Videos:} 200 clips
+    \item \textbf{Average Duration:} Approximately 90 seconds
+    \item \textbf{Average Description Length:} 402 words (range: 99-1,011 words)
+    \item \textbf{Average Sentences per Description:} 22 sentences (range: 4-59 sentences)
+    \item \textbf{Description Length Standard Deviation:} 209 words
+\end{itemize}
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.48\textwidth]{sec/dataset_distribution.pdf}
+\caption{Distribution of description characteristics in CLIP-CC-Bench. The dataset exhibits substantial variation in both word count and sentence length, reflecting the diverse complexity of video content while maintaining comprehensive paragraph-level descriptions suitable for evaluating long-form video understanding capabilities.}
+\label{fig:dataset_distribution}
+\end{figure}
+
+\Cref{fig:dataset_distribution} illustrates the distribution of description lengths across our dataset, demonstrating the substantial variation in complexity that reflects the diverse nature of video content. The bimodal distribution in word counts reveals two primary description patterns: concise summaries for simpler scenes (100-300 words) and comprehensive narratives for complex sequences (400-800 words). This natural variation ensures that CLIP-CC-Bench evaluates models across a spectrum of descriptive requirements, from brief action sequences to intricate multi-character interactions.
+
+Our ground-truth descriptions exhibit several distinctive characteristics that differentiate CLIP-CC-Bench from existing datasets:
+
+\textbf{Comprehensive Detail:} Descriptions provide thorough coverage of visual content with substantial variation in length to accommodate different scene complexities.
+
+\textbf{Temporal Structure:} Descriptions follow chronological progression through the video content, explicitly tracking temporal relationships between events and character actions.
+
+\textbf{Visual Specificity:} Detailed descriptions of visual elements including clothing, environmental features, object properties, and spatial relationships provide rich evaluation targets for VLM assessment.
+
+\textbf{Action Coverage:} Both foreground actions (primary character activities) and background elements (environmental details, secondary characters) are systematically documented to enable comprehensive evaluation.
+
+This composition ensures representative coverage of diverse cinematic styles while maintaining evaluation consistency and quality standards for long-form description assessment.
+

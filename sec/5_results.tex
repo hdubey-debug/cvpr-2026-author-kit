@@ -1,0 +1,126 @@
+\section{Results}
+\label{sec:results}
+
+We present comprehensive experimental results evaluating 14 Vision Language Models on CLIP-CC-Bench across three evaluation families for long-form video description.
+
+\subsection{N-gram Overlap}
+
+Our N-gram overlap evaluation reveals substantial variation in models' ability to generate lexically similar descriptions to ground-truth references. \Cref{tab:ngram_results} presents N-gram overlap metrics between generated and reference descriptions.
+
+\begin{table}[t]
+\centering
+\caption{N-gram overlap results on CLIP-CC-Bench for long-form video description.}
+\label{tab:ngram_results}
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{l|ccccccc}
+\toprule
+\textbf{Model} & \rotatebox{90}{\textbf{BLEU-1}} & \rotatebox{90}{\textbf{BLEU-4}} & \rotatebox{90}{\textbf{ROUGE-1}} & \rotatebox{90}{\textbf{ROUGE-4}} & \rotatebox{90}{\textbf{ROUGE-L}} & \rotatebox{90}{\textbf{ROUGE-Lsum}} & \rotatebox{90}{\textbf{METEOR}} \\
+\midrule
+VideoLLaMA3 & 0.32 & 0.08 & 0.45 & 0.03 & 0.25 & 0.27 & 0.27 \\
+LongVU & 0.27 & 0.05 & 0.39 & 0.02 & 0.23 & 0.24 & 0.24 \\
+mPLUG-Owl3 & 0.27 & 0.07 & 0.39 & 0.03 & 0.25 & 0.24 & 0.25 \\
+Video-XL & 0.27 & 0.04 & 0.39 & 0.01 & 0.20 & 0.24 & 0.22 \\
+ShareGPT4Video & 0.26 & 0.05 & 0.36 & 0.02 & 0.21 & 0.21 & 0.24 \\
+InternVL2 & 0.24 & 0.03 & 0.37 & 0.01 & 0.20 & 0.22 & 0.22 \\
+MiniCPM-V & 0.24 & 0.02 & 0.35 & 0.01 & 0.18 & 0.21 & 0.22 \\
+LLaVA-OneVision & 0.22 & 0.05 & 0.39 & 0.03 & 0.24 & 0.24 & 0.20 \\
+ViLAMP & 0.20 & 0.05 & 0.35 & 0.03 & 0.22 & 0.22 & 0.21 \\
+TS-LLaVA & 0.15 & 0.02 & 0.29 & 0.01 & 0.18 & 0.18 & 0.15 \\
+LongVA & 0.13 & 0.01 & 0.24 & 0.00 & 0.14 & 0.15 & 0.15 \\
+Oryx & 0.09 & 0.01 & 0.24 & 0.00 & 0.15 & 0.15 & 0.11 \\
+TimeChat & 0.09 & 0.01 & 0.27 & 0.00 & 0.17 & 0.17 & 0.13 \\
+VideoChat-Flash & 0.06 & 0.01 & 0.24 & 0.01 & 0.15 & 0.15 & 0.11 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+VideoLLaMA3 achieves the highest scores across most metrics (BLEU-1: 0.32, ROUGE-1: 0.45, METEOR: 0.27), demonstrating superior lexical alignment with reference descriptions. LongVU and mPLUG-Owl3 follow closely, while specialized models like Oryx and VideoChat-Flash show limited lexical correspondence, suggesting that architectural design and training methodology significantly influence lexical similarity performance.
+
+\subsection{Embedding-Based Similarity}
+
+Semantic similarity assessment using state-of-the-art text encoders provides complementary insights into models' ability to capture meaning beyond surface-level lexical matches. \Cref{tab:embedding_results} presents semantic similarity (normalized cosine) using seven state-of-the-art text encoders.
+
+\begin{table}[t]
+\centering
+\caption{Embedding-based semantic similarity on CLIP-CC-Bench for long-form video description.}
+\label{tab:embedding_results}
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{l|ccccccc}
+\toprule
+\textbf{Model} & \rotatebox{90}{\textbf{BGE-EN-ICL}} & \rotatebox{90}{\textbf{E5-Mistral}} & \rotatebox{90}{\textbf{Jasper-Envision}} & \rotatebox{90}{\textbf{Jina-v4}} & \rotatebox{90}{\textbf{Nomic-Embed}} & \rotatebox{90}{\textbf{NV-Embed}} & \rotatebox{90}{\textbf{Stella-EN}} \\
+\midrule
+VideoLLaMA3 & 0.856 & 0.939 & 0.899 & 0.929 & 0.931 & 0.842 & 0.915 \\
+mPLUG-Owl3 & 0.846 & 0.935 & 0.892 & 0.920 & 0.925 & 0.814 & 0.912 \\
+LongVU & 0.845 & 0.923 & 0.872 & 0.916 & 0.920 & 0.808 & 0.894 \\
+LLaVA-OneVision & 0.841 & 0.931 & 0.881 & 0.916 & 0.926 & 0.822 & 0.903 \\
+MiniCPM-V & 0.841 & 0.919 & 0.861 & 0.911 & 0.912 & 0.802 & 0.878 \\
+ShareGPT4Video & 0.833 & 0.906 & 0.845 & 0.896 & 0.897 & 0.777 & 0.872 \\
+InternVL2 & 0.822 & 0.910 & 0.844 & 0.891 & 0.900 & 0.786 & 0.869 \\
+Video-XL & 0.828 & 0.911 & 0.836 & 0.901 & 0.896 & 0.781 & 0.879 \\
+Oryx & 0.811 & 0.880 & 0.806 & 0.875 & 0.887 & 0.741 & 0.848 \\
+TimeChat & 0.810 & 0.896 & 0.831 & 0.874 & 0.895 & 0.763 & 0.865 \\
+TS-LLaVA & 0.807 & 0.889 & 0.801 & 0.867 & 0.872 & 0.734 & 0.849 \\
+VideoChat-Flash & 0.805 & 0.908 & 0.841 & 0.897 & 0.880 & 0.770 & 0.895 \\
+ViLAMP & 0.840 & 0.926 & 0.883 & 0.912 & 0.902 & 0.801 & 0.906 \\
+LongVA & 0.783 & 0.862 & 0.777 & 0.841 & 0.839 & 0.700 & 0.809 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+VideoLLaMA3 maintains semantic leadership with E5-Mistral (0.939) and Nomic-Embed (0.931), followed closely by mPLUG-Owl3. NV-Embed consistently produces the most conservative scores, while E5-Mistral provides higher absolute values. Notably, VideoChat-Flash achieves respectable semantic similarity despite poor lexical overlap, suggesting capability for semantically coherent descriptions using alternative vocabulary.
+
+\subsection{LLM-as-Judge (ACCR)}
+
+The ACCR rubric evaluation leverages LLM-based assessment to capture nuanced aspects of description quality that traditional metrics often overlook. \Cref{tab:llm_judge_results} presents assessment using LLaMA-3.1-72B-Instruct with the ACCR rubric for long-form description quality.
+
+\begin{table}[t]
+\centering
+\caption{LLM-as-judge (ACCR) evaluation using LLaMA-3.1-72B for long-form video description.}
+\label{tab:llm_judge_results}
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{l|ccccc}
+\toprule
+\textbf{Model} & \rotatebox{90}{\textbf{Accuracy}} & \rotatebox{90}{\textbf{Completeness}} & \rotatebox{90}{\textbf{Conciseness}} & \rotatebox{90}{\textbf{Relevance}} & \rotatebox{90}{\textbf{Overall Score}} \\
+\midrule
+MiniCPM-V & 72.34 & 75.98 & 68.09 & 82.99 & 74.85 \\
+VideoLLaMA3 & 67.01 & 67.49 & 68.14 & 78.77 & 70.35 \\
+LongVU & 64.05 & 61.81 & 61.96 & 75.15 & 65.74 \\
+LLaVA-OneVision & 60.58 & 52.61 & 67.81 & 69.92 & 62.73 \\
+Video-XL & 59.65 & 55.08 & 64.20 & 71.58 & 62.63 \\
+mPLUG-Owl3 & 60.43 & 57.34 & 58.82 & 72.81 & 62.35 \\
+ViLAMP & 56.56 & 53.02 & 65.83 & 69.65 & 61.26 \\
+VideoChat-Flash & 54.05 & 36.68 & 64.02 & 63.14 & 54.47 \\
+TS-LLaVA & 51.28 & 41.31 & 63.99 & 60.88 & 54.37 \\
+ShareGPT4Video & 52.34 & 46.53 & 54.22 & 63.17 & 54.06 \\
+InternVL2 & 49.32 & 46.33 & 54.62 & 61.73 & 53.00 \\
+Oryx & 47.26 & 29.60 & 69.10 & 53.07 & 49.76 \\
+TimeChat & 43.92 & 32.46 & 65.35 & 53.32 & 48.76 \\
+LongVA & 40.88 & 34.42 & 52.91 & 46.96 & 43.79 \\
+\bottomrule
+\end{tabular}
+}
+\end{table}
+
+MiniCPM-V achieves the highest overall score (74.85), excelling in Completeness (75.98) and Relevance (82.99). This represents a significant departure from N-gram and embedding results, where VideoLLaMA3 dominated. The LLM judge reveals that most models achieve highest scores in Relevance, indicating focus on visual content, while Completeness remains challenging. VideoLLaMA3 ranks second (70.35) with balanced performance across dimensions.
+
+
+\subsection{Key Findings}
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=0.8\textwidth]{sec/correlation_heatmap.pdf}
+\caption{Spearman correlation analysis across all evaluation metrics in CLIP-CC-Bench.}
+\label{fig:correlation_heatmap}
+\end{figure*}
+
+\Cref{fig:correlation_heatmap} presents our correlation analysis across evaluation metrics, revealing moderate to high within-metric-type correlations (N-gram: 0.88, Embedding: 0.92, G-VEval: 0.70) and moderate cross-metric-type correlations (0.57-0.78) that support our multi-faceted evaluation approach. Notably, the seven encoder models demonstrate high inter-correlation (mean: 0.92), with the lowest correlation between BGE-EN-ICL and Stella (0.76), suggesting that while encoder models capture similar semantic aspects, they maintain sufficient diversity to provide complementary perspectives. Our evaluation suite reveals critical insights for long-form video description:
+
+\textbf{1. Divergence Across Evaluation Families:} The three families produce substantially different rankings. VideoLLaMA3 dominates N-gram overlap (BLEU-1: 0.32, ROUGE-1: 0.45) and embedding similarity (E5-Mistral: 0.939), while MiniCPM-V excels in LLM-as-judge assessment (74.85/100). This divergence demonstrates that models excel in different aspects of long-form description.
+
+\textbf{2. Architecture and Training Matter Most:} The strong performance variance among models demonstrates that architectural design and training methodology are critical factors in model performance. VideoLLaMA3 achieves 0.32 BLEU-1 while TimeChat achieves only 0.09, highlighting substantial differences in capability despite both being vision-language models.
+
+\textbf{3. Application-Driven Model Selection:} The divergent strengths across families indicate that model selection should be guided by application requirements. For lexical accuracy, VideoLLaMA3 excels; for semantic understanding, multiple models perform comparably; for discourse quality, MiniCPM-V leads.
+
+\textbf{4. Substantial Headroom Remains:} Even top performers achieve modest absolute scores. VideoLLaMA3's best ROUGE-1 is only 0.45, and MiniCPM-V's ACCR score is 74.85/100, indicating significant room for improvement in long-form video description capabilities.
